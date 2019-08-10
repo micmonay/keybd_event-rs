@@ -3,6 +3,7 @@ use std::io::ErrorKind;
 use std::path::Path;
 
 use uinput::Device;
+
 use {KBPlatform, KeyBonding};
 
 const EV_SYN: i32 = 0x00;

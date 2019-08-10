@@ -9,7 +9,7 @@
 //!extern crate keybd_event;
 //!
 //!#[cfg(target_os = "linux")]
-//!use std::thread::{sleep, Thread};
+//!use std::thread::sleep;
 //!#[cfg(target_os = "linux")]
 //!use std::time::Duration;
 //!use keybd_event::KeyboardKey::{KeyA,KeyZ};
@@ -47,24 +47,26 @@
 //!
 //! ## Darwin (MAC OS)
 //! This library depends on the frameworks Apple, I did not find a solution for cross-compilation.
-#[cfg(target_os = "linux")]
-mod linux;
-#[cfg(target_os = "linux")]
-use linux::LinuxKeyBD;
+#[cfg(target_os = "macos")]
+extern crate core_graphics;
 #[cfg(target_os = "linux")]
 extern crate uinput;
 
-#[cfg(target_os = "macos")]
-extern crate core_graphics;
-#[cfg(target_os = "macos")]
-mod macos;
+#[cfg(target_os = "linux")]
+use linux::LinuxKeyBD;
 #[cfg(target_os = "macos")]
 use macos::MacOSKeyBD;
+#[cfg(target_os = "windows")]
+use windows::WindowsKeyBD;
+
+#[cfg(target_os = "linux")]
+mod linux;
+
+#[cfg(target_os = "macos")]
+mod macos;
 
 #[cfg(target_os = "windows")]
 mod windows;
-#[cfg(target_os = "windows")]
-use windows::WindowsKeyBD;
 
 /// Contain all Keyboard key compatible
 #[derive(Copy, Clone, Debug)]
@@ -272,6 +274,7 @@ mod tests {
     use std::thread::{sleep, Thread};
     #[cfg(target_os = "linux")]
     use std::time::Duration;
+
     use KeyBondingInstance;
     use KeyboardKey::*;
 

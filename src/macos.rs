@@ -1,8 +1,11 @@
 #![allow(non_upper_case_globals)]
-use core_graphics::event::{CGEvent, CGEventFlags, CGEventTapLocation};
-use core_graphics::event_source::{CGEventSource, CGEventSourceStateID};
+
 use std::thread::sleep;
 use std::time::Duration;
+
+use core_graphics::event::{CGEvent, CGEventFlags, CGEventTapLocation};
+use core_graphics::event_source::{CGEventSource, CGEventSourceStateID};
+
 use KeyboardKey;
 use {KBPlatform, KeyBonding};
 
