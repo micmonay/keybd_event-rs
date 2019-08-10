@@ -1,5 +1,3 @@
-use std::thread::sleep;
-use std::time::Duration;
 use {KBPlatform, KeyBonding};
 
 #[link(name = "user32")]
@@ -18,7 +16,9 @@ const K_RSHIFT: u16 = 0xA1 + 0xFFF;
 // const K_LSHIFT: u16 = 0xA0 + 0xFFF;
 // const K_LCONTROL: u16 = 0xA2 + 0xFFF;
 const K_RCONTROL: u16 = 0xA3 + 0xFFF;
+
 pub struct WindowsKeyBD {}
+
 impl KBPlatform for WindowsKeyBD {
     fn run_action(&mut self, key_bonding: KeyBonding) {
         unsafe {
@@ -67,6 +67,7 @@ impl KBPlatform for WindowsKeyBD {
         }
     }
 }
+
 impl WindowsKeyBD {
     pub fn new() -> Result<Box<KBPlatform>, String> {
         Ok(Box::new(WindowsKeyBD {}))
