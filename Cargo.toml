@@ -6,7 +6,7 @@ authors = ["micmonay <micmonay@gmail.com>"]
 description = "Simulating keyboard on Linux, Windows and Mac OS in rust"
 categories = ["os","simulation"]
 repository = "https://github.com/micmonay/keybd_event-rs"
-keywords    = ["keyboard", "simulation","simulat","keybd_event","uinput","macos","windows","linux"]
+keywords    = ["keyboard", "simulation","simulat","keybd_event","uinput"]
 
 [target.'cfg(target_os = "linux")'.dependencies]
 uinput = "0.1.3"
