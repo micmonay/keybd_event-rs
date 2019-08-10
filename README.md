@@ -9,7 +9,7 @@
 extern crate keybd_event;
 
 #[cfg(target_os = "linux")]
-use std::thread::{sleep, Thread};
+use std::thread::sleep;
 #[cfg(target_os = "linux")]
 use std::time::Duration;
 use keybd_event::KeyboardKey::{KeyA,KeyZ};
