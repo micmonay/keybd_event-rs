@@ -20,8 +20,7 @@
 //!    #[cfg(target_os = "linux")]
 //!        sleep(Duration::from_secs(2));
 //!    kb.has_shift(true);
-//!    kb.add_keys(KeyA);
-//!    kb.add_keys(KeyZ);
+//!    kb.add_keys(&[KeyA, KeyZ]);
 //!    kb.launching();
 //!}
 //! ```
@@ -240,7 +239,11 @@ impl KeyBondingInstance {
     pub fn set_keys(&mut self, keys: Vec<KeyboardKey>) {
         self.key_bonding.keys = keys;
     }
-    pub fn add_keys(&mut self, key: KeyboardKey) {
+
+    pub fn add_keys(&mut self, keys: &[KeyboardKey]) {
+        self.key_bonding.keys.extend_from_slice(keys);
+    }
+    pub fn add_key(&mut self, key: KeyboardKey) {
         self.key_bonding.keys.push(key);
     }
     pub fn has_shift(&mut self, b: bool) {
@@ -284,8 +287,7 @@ mod tests {
         #[cfg(target_os = "linux")]
         sleep(Duration::from_secs(2));
         kb.has_shift(true);
-        kb.add_keys(KeyA);
-        kb.add_keys(KeyZ);
+        kb.add_keys(&[KeyA, KeyZ]);
         kb.launching();
     }
 }

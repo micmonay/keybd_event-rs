@@ -20,8 +20,7 @@ fn main() {
     #[cfg(target_os = "linux")]
         sleep(Duration::from_secs(2));
     kb.has_shift(true);
-    kb.add_keys(KeyA);
-    kb.add_keys(KeyZ);
+    kb.add_keys(&[KeyA, KeyZ]);
     kb.launching();
 }
  ```

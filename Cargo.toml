@@ -1,6 +1,6 @@
 [package]
 name = "keybd_event"
-version = "0.1.1"
+version = "0.1.2"
 license = "MIT"
 authors = ["micmonay <micmonay@gmail.com>"]
 description = "Simulating keyboard on Linux, Windows and Mac OS in rust"
